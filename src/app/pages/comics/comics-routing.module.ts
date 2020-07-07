@@ -1,3 +1,4 @@
+import { ComicDetailComponent } from './comic-detail/comic-detail.component';
 import { ComicsListComponent } from './comics-list/comics-list.component';
 import { ComicsComponent } from './comics.component';
 
@@ -13,6 +14,10 @@ const routes: Routes = [
       {
         path: 'list',
         component: ComicsListComponent,
+      },
+      {
+        path: ':id/detail',
+        component: ComicDetailComponent,
       },
       {
         path: '',
