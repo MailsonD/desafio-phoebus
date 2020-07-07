@@ -7,20 +7,24 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatBadgeModule } from '@angular/material/badge';
 import { FooterComponent } from './footer/footer.component';
+import { ComicCardComponent } from './comic-card/comic-card.component';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
-  declarations: [ HeaderComponent, FooterComponent ],
+  declarations: [ HeaderComponent, FooterComponent, ComicCardComponent ],
   imports: [
     CommonModule,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
     MatInputModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatCardModule
   ],
   exports: [
     HeaderComponent,
     FooterComponent,
+    ComicCardComponent
   ]
 })
 export class ComponentsModule { }

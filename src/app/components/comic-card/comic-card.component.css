@@ -1,0 +1,38 @@
+.comic-card {
+    max-width: 200px;
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-cover {
+    width: 27vh;
+    height: 30vh;
+    padding-top: 10px;
+    transition: transform .3s, opacity .5s; /* Animation */
+    opacity: 1;
+}
+
+.img-cover:hover {
+    opacity: 0.5;
+    transform: scale(1.05);
+    transition: transform .3s, opacity .5s;
+    
+    cursor: pointer;
+}
+  
+.card-title {
+    font-weight: 500;
+}
+
+.card-end {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-buy {
+    background-color: #FFBA08;
+}
