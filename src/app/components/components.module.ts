@@ -6,9 +6,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatBadgeModule } from '@angular/material/badge';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
-  declarations: [ HeaderComponent ],
+  declarations: [ HeaderComponent, FooterComponent ],
   imports: [
     CommonModule,
     MatToolbarModule,
@@ -19,6 +20,7 @@ import { MatBadgeModule } from '@angular/material/badge';
   ],
   exports: [
     HeaderComponent,
+    FooterComponent,
   ]
 })
 export class ComponentsModule { }
