@@ -1,8 +1,10 @@
+import { ComicsModule } from './comics/comics.module';
 import { HomeModule } from './home/home.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PagesRoutingModule } from './pages-routing.module';
 import { PagesComponent } from './pages.component';
+import { ComicsComponent } from './comics/comics.component';
 
 
 
@@ -11,7 +13,8 @@ import { PagesComponent } from './pages.component';
   imports: [
     CommonModule,
     PagesRoutingModule,
-    HomeModule
+    HomeModule,
+    ComicsModule
   ]
 })
 export class PagesModule { }

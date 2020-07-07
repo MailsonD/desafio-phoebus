@@ -1,3 +1,4 @@
+import { ComicsModule } from './comics/comics.module';
 import { HomeModule } from './home/home.module';
 import { PagesComponent } from './pages.component';
 import { NgModule } from '@angular/core';
@@ -13,6 +14,10 @@ const routes: Routes = [
       {
         path: 'home',
         loadChildren: () => HomeModule,
+      },
+      {
+        path: 'comics',
+        loadChildren: () => ComicsModule
       },
       {
         path: '',
