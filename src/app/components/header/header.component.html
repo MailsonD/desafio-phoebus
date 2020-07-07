@@ -1,25 +1,28 @@
 <mat-toolbar color="primary" class="mat-elevation-z6">
-  <button
-    mat-icon-button
-    class="example-icon"
-    aria-label="Example icon-button with menu icon"
-  >
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span>Marvelous</span>
-  <span class="example-spacer"></span>
-  <button
-    mat-icon-button
-    class="example-icon favorite-icon"
-    aria-label="Example icon-button with heart icon"
-  >
-    <mat-icon>favorite</mat-icon>
-  </button>
-  <button
-    mat-icon-button
-    class="example-icon"
-    aria-label="Example icon-button with share icon"
-  >
-    <mat-icon>share</mat-icon>
-  </button>
+  <mat-toolbar-row class="top-bar">
+    <a class="link-logo-img"
+      ><img src="../../../assets/img/logo.svg" class="logo-img"
+    /></a>
+
+    <mat-form-field class="input-search">
+      <mat-label class="input-font-size">Buscar</mat-label>
+      <input matInput placeholder="O que deseja?" class="input-font-size" />
+      <mat-icon matSuffix class="icon-size">search</mat-icon>
+    </mat-form-field>
+
+    <div class="end-top-bar">
+      <span class="text-top-bar">Excelsior</span>
+      <button mat-icon-button>
+        <mat-icon matBadge="20" matBadgeOverlap="false">shopping_cart</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row class="top-bar-second-row">
+    <mat-form-field class="input-search-responsive">
+      <mat-label class="input-font-size">Buscar</mat-label>
+      <input matInput placeholder="O que deseja?" class="input-font-size" />
+      <mat-icon matSuffix class="icon-size">search</mat-icon>
+    </mat-form-field>
+  </mat-toolbar-row>
 </mat-toolbar>
