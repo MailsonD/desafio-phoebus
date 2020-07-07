@@ -1,3 +1,4 @@
+import { HomeModule } from './home/home.module';
 import { PagesComponent } from './pages.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -11,7 +12,7 @@ const routes: Routes = [
     children: [
       {
         path: 'home',
-        component: HomeComponent,
+        loadChildren: () => HomeModule,
       },
       {
         path: '',

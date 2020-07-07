@@ -1,0 +1,24 @@
+.rare-comics-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.rare-comics-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95vw;
+}
+
+.rare-comics-list {
+    align-self: center;
+    margin: 0px 30px 20px 30px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.rare-comics-header h1 {
+    padding-top: 10px;
+}
