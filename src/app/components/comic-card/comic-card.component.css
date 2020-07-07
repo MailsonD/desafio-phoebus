@@ -37,3 +37,14 @@
 .btn-buy {
     background-color: #FFBA08;
 }
+
+@media only screen and (max-width: 768px) {
+    .comic-card {
+        max-width: 130px;
+    }
+
+    .img-cover {
+        width: 36vw;
+        height: 24vh;
+    }
+}

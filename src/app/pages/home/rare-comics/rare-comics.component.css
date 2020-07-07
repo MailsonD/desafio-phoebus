@@ -13,7 +13,8 @@
 }
 
 .rare-comics-list {
-    align-self: center;
+    width: 95vw;
+    justify-content: space-between;
     margin: 0px 30px 20px 30px;
     display: flex;
     flex-wrap: wrap;

@@ -5,10 +5,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { RareComicsComponent } from './rare-comics/rare-comics.component';
+import { HighlightsComponent } from './highlights/highlights.component';
 
 
 @NgModule({
-  declarations: [ HomeComponent, RareComicsComponent ],
+  declarations: [ HomeComponent, RareComicsComponent, HighlightsComponent ],
   imports: [
     CommonModule,
     ComponentsModule,
@@ -16,7 +17,8 @@ import { RareComicsComponent } from './rare-comics/rare-comics.component';
     MatButtonModule,
   ],
   exports: [
-    RareComicsComponent
+    RareComicsComponent,
+
   ]
 })
 export class HomeModule { }
