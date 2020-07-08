@@ -24,6 +24,13 @@
     cursor: pointer;
 }
   
+.card-title-box {
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
 .card-title {
     font-weight: 500;
 }

@@ -8,8 +8,6 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ComicCardComponent implements OnInit {
 
-  DEFAULT_COVER_PATH = '../../../assets/img/not-found.png';
-
   @Input() comic: Comic;
 
   constructor() { }
@@ -22,11 +20,9 @@ export class ComicCardComponent implements OnInit {
   }
 
   getCoverPath() {
-    if (this.comic.thumbnail && !this.comic.thumbnail.path.search('image_not_available')) {
-      return `${this.comic.thumbnail.path}/portrait_incredible.${this.comic.thumbnail.extension}`;
-    } else {
-      return this.DEFAULT_COVER_PATH;
-    }
+
+    return `${this.comic.thumbnail.path}.${this.comic.thumbnail.extension}`;
+
   }
 
   ngOnInit(): void {
