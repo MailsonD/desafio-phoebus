@@ -1,3 +1,4 @@
+import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ComponentsModule } from './../../components/components.module';
 import { ComicsRoutingModule } from './comics-routing.module';
@@ -17,7 +18,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     ComicsRoutingModule,
     ComponentsModule,
     MatProgressSpinnerModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatButtonModule,
   ]
 })
 export class ComicsModule { }

@@ -1,30 +1,36 @@
 <div class="box-comic-detail">
   <div class="box-cover-img">
-    <div class="img-cover">
-      <img src="../../../../assets/img/not-found.png" />
+    <div class="spinner-box" *ngIf="!comic">
+      <mat-spinner color="accent" class="spinner"></mat-spinner>
+    </div>
+
+    <div class="img-cover" *ngIf="comic">
+      <img [src]="getCoverImg()" />
     </div>
   </div>
-  <div class="box-comic-info">
+
+  <div class="spinner-box" *ngIf="!comic">
+    <mat-spinner color="accent" class="spinner"></mat-spinner>
+  </div>
+  <div class="box-comic-info" *ngIf="comic">
     <h1>
-      O Imortal Hulk - Vol.04
+      {{ comic.title }}
     </h1>
-    <span class="price">
-      R$ 14,90
-    </span>
+    <span class="price"> R${{ getPrice() }} </span>
     <br />
-    <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-      Lorem Ipsum has been the industry's standard dummy text ever since the
-      1500s, when an unknown printer took a galley of type and scrambled it to
-      make a type specimen book. It has survived not only five centuries, but
-      also the leap into electronic typesetting, remaining essentially
-      unchanged. It was popularised in the 1960s with the release of Letraset
-      sheets containing Lorem Ipsum passages, and more recently with desktop
-      publishing software like Aldus PageMaker including versions of Lorem
-      Ipsum.
+    <p *ngIf="comic.description">
+      {{ comic.description }}
+    </p>
+
+    <p *ngIf="!comic.description">
+      A descrição deste quadrinho não está disponível no momento, por favor nos
+      procure em outra hora para mais informações a respeito deta maravilhosa
+      obra contemporânea da Marvel Comics
     </p>
 
     <hr />
-    <div class="box-end-info"></div>
+    <div class="box-end-info">
+      <button class="btn-buy" mat-button>Comprar</button>
+    </div>
   </div>
 </div>

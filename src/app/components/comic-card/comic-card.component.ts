@@ -1,16 +1,17 @@
 import Comic from 'src/app/model/comic';
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-comic-card',
   templateUrl: './comic-card.component.html',
   styleUrls: [ './comic-card.component.css' ]
 })
-export class ComicCardComponent implements OnInit {
+export class ComicCardComponent {
 
   @Input() comic: Comic;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   getPrice() {
     if (this.comic.prices && this.comic.prices.length > 0) {
@@ -25,7 +26,8 @@ export class ComicCardComponent implements OnInit {
 
   }
 
-  ngOnInit(): void {
+  goToDeatil() {
+    this.router.navigate([ `comics/${this.comic.id}/detail` ]);
   }
 
 }

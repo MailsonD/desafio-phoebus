@@ -32,7 +32,6 @@ export class ComicsListComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscriptions.comics = this.route.queryParams.pipe(
       mergeMap(res => {
-        console.log(res);
         if (res.query) {
           this.query = res.query;
         }
@@ -49,13 +48,11 @@ export class ComicsListComponent implements OnInit, OnDestroy {
   loadComics() {
     if (this.query) {
       if (this.limit && this.offset) {
-        console.log('epa');
         return this.comicsService.findComics(this.query, String(this.limit), String(this.offset));
       }
       return this.comicsService.findComics(this.query);
     } else {
       if (this.limit && this.offset) {
-        console.log('epa');
         return this.comicsService.listComics(String(this.limit), String(this.offset));
       }
       return this.comicsService.listComics();
@@ -63,7 +60,6 @@ export class ComicsListComponent implements OnInit, OnDestroy {
   }
 
   handleChangePage(event) {
-    console.log(event);
     this.comics = undefined;
 
     this.page = event.pageIndex;
@@ -71,7 +67,6 @@ export class ComicsListComponent implements OnInit, OnDestroy {
     this.limit = event.pageSize;
     this.offset = (event.pageIndex * event.pageSize) - 1;
 
-    console.log(this.limit, this.offset);
 
     this.subscriptions.reload = this.loadComics().subscribe(comicsDTO => {
       this.comics = comicsDTO.results;

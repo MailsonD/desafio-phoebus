@@ -24,6 +24,20 @@ export class ComicsService {
     return this.getComics(query, offset, limit);
   }
 
+  findComicById(comicId: string): Observable<ComicsDTO> {
+    return this.httpClient.get(`${env.marvelApi.baseUrl}/comics/${comicId}`, {
+      params: {
+        apikey: env.marvelApi.apiKey,
+      }
+    }).pipe(map((response: any) => {
+      const { data } = response;
+      return data as ComicsDTO;
+    }));
+  }
+
+
+
+
   private getComics(query: string, offset: string, limit: string): Observable<ComicsDTO> {
     let params;
 

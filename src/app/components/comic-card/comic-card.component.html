@@ -3,7 +3,7 @@
     mat-card-image
     class="img-cover"
     [src]="getCoverPath()"
-    alt="Photo of a Shiba Inu"
+    (click)="goToDeatil()"
   />
   <mat-card-content class="card-title-box">
     <h3 class="card-title">{{ comic.title }}</h3>
