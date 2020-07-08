@@ -20,7 +20,7 @@
 
     <div class="end-top-bar">
       <span class="text-top-bar">Excelsior</span>
-      <button mat-icon-button>
+      <button mat-icon-button (click)="goToCart()">
         <mat-icon [matBadge]="cartQuantity" matBadgeOverlap="false"
           >shopping_cart</mat-icon
         >

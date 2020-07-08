@@ -1,3 +1,4 @@
+import { CartService } from './../../../services/cart.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ComicsService } from 'src/app/services/comics.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -19,7 +20,12 @@ export class ComicDetailComponent implements OnInit, OnDestroy {
 
   subscriptions: any = {};
 
-  constructor(private comicsService: ComicsService, private route: ActivatedRoute, private router: Router) { }
+  constructor(
+    private comicsService: ComicsService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private cartService: CartService,
+  ) { }
 
 
   ngOnInit(): void {
@@ -49,6 +55,10 @@ export class ComicDetailComponent implements OnInit, OnDestroy {
       return this.comic.prices[ 0 ].price;
     }
     return '0,00';
+  }
+
+  addToCart() {
+    this.cartService.addToCart(this.comic);
   }
 
   ngOnDestroy(): void {

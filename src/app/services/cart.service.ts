@@ -1,3 +1,4 @@
+import { CartItem } from './../model/cart-item';
 import Comic from 'src/app/model/comic';
 import { Injectable, OnInit, OnDestroy } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
@@ -7,7 +8,7 @@ import { Observable, Subject } from 'rxjs';
 })
 export class CartService implements OnDestroy {
 
-  comics: Comic[];
+  comics: CartItem[];
 
   $quantity = new Subject<number>();
 
@@ -25,12 +26,16 @@ export class CartService implements OnDestroy {
   }
 
   addToCart(comic: Comic) {
-    this.comics.push(comic);
-    this.$quantity.next(this.comics.length);
+    if (this.alredyExists(comic)) {
+      this.addItem(comic);
+    } else {
+      this.comics.push(new CartItem(comic, 1));
+      this.$quantity.next(this.comics.length);
+    }
   }
 
-  removeFromCard(comic: Comic) {
-    const index = this.comics.findIndex(c => c.id === comic.id);
+  removeFromCart(comic: Comic) {
+    const index = this.comics.findIndex(c => c.comic.id === comic.id);
     if (index) {
       this.comics.splice(index, 1);
       this.$quantity.next(this.comics.length);
@@ -41,7 +46,31 @@ export class CartService implements OnDestroy {
     return this.comics;
   }
 
+
   getQuantity() {
     return this.$quantity.asObservable();
+  }
+
+
+  addItem(comic) {
+    const index = this.comics.findIndex(c => c.comic.id === comic.id);
+    const newItem = this.comics[ index ];
+    newItem.quantity = newItem.quantity + 1;
+    this.comics[ index ] = newItem;
+  }
+
+  removeItem(comic) {
+    const index = this.comics.findIndex(c => c.comic.id === comic.id);
+    const removedItem = this.comics[ index ];
+    if (removedItem.quantity === 1) {
+      this.removeFromCart(comic);
+    } else {
+      removedItem.quantity = removedItem.quantity - 1;
+      this.comics[ index ] = removedItem;
+    }
+  }
+
+  private alredyExists(comic) {
+    return this.comics.findIndex(c => c.comic.id === comic.id) !== - 1;
   }
 }

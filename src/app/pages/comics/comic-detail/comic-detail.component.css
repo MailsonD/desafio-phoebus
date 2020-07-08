@@ -92,3 +92,9 @@
     background-color: #FFBA08;
     width: 40%;
 }
+
+@media only screen and (max-width: 768px) { 
+    .box-comic-detail { 
+        flex-direction: column;
+    }
+}

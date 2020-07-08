@@ -33,6 +33,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.router.navigate([ 'home' ]);
   }
 
+  goToCart() {
+    this.router.navigate([ 'cart' ]);
+  }
+
   handleSubmitSearch() {
     this.router.navigate([ 'comics' ], {
       queryParams: {

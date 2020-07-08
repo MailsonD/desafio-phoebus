@@ -1,18 +1,20 @@
 <div class="cart-items-box">
-  <div class="cart-info">
+  <h1 *ngIf="!items">Não existem itens no carrinho</h1>
+
+  <div class="cart-info" *ngIf="items">
     <h1>Carrinho de compras</h1>
     <span>Preço</span>
   </div>
   <hr />
-  <div class="item">
+  <div class="item" *ngFor="let item of items">
     <div class="item-content">
       <div class="item-img">
-        <img src="../../../../assets/img/not-found.png" />
+        <img [src]="getImgCover(item.comic)" />
       </div>
       <div class="item-info">
-        <h2>O Imortal Hulk</h2>
+        <h2>{{ item.comic.title }}</h2>
       </div>
     </div>
-    <span class="item-price">R$ 14,50</span>
+    <span class="item-price">R$ {{ getPrice(item.comic) }}</span>
   </div>
 </div>
