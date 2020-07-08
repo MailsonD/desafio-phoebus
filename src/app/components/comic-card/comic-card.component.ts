@@ -1,3 +1,4 @@
+import { CartService } from './../../services/cart.service';
 import Comic from 'src/app/model/comic';
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
@@ -11,7 +12,7 @@ export class ComicCardComponent {
 
   @Input() comic: Comic;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private cartService: CartService) { }
 
   getPrice() {
     if (this.comic.prices && this.comic.prices.length > 0) {
@@ -24,6 +25,10 @@ export class ComicCardComponent {
 
     return `${this.comic.thumbnail.path}.${this.comic.thumbnail.extension}`;
 
+  }
+
+  addToCart() {
+    this.cartService.addToCart(this.comic);
   }
 
   goToDeatil() {

@@ -10,6 +10,6 @@
   </mat-card-content>
   <mat-card-actions class="card-end">
     <p>Preço R${{ getPrice() }}</p>
-    <button class="btn-buy" mat-button>Comprar</button>
+    <button class="btn-buy" mat-button (click)="addToCart()">Comprar</button>
   </mat-card-actions>
 </mat-card>
