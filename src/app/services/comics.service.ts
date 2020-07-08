@@ -30,7 +30,7 @@ export class ComicsService {
     if (query) {
       params = {
         apikey: env.marvelApi.apiKey,
-        title: query,
+        titleStartsWith: query,
         limit,
         offset,
       };

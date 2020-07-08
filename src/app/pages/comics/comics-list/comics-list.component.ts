@@ -19,21 +19,38 @@ export class ComicsListComponent implements OnInit, OnDestroy {
 
   comics: Comic[];
 
+  query: string;
+
   subscriptions: any = {};
 
   constructor(private comicsService: ComicsService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.subscriptions.comics = this.route.params.pipe(
-      mergeMap((res, index) => {
+    this.subscriptions.comics = this.route.queryParams.pipe(
+      mergeMap(res => {
         console.log(res);
-        return this.comicsService.listComics();
+        if (res.query) {
+          this.query = res.query;
+        }
+
+        return this.loadComics();
       })
     ).subscribe(comicsDTO => {
       console.log(comicsDTO);
       this.comics = comicsDTO.results;
       this.total = comicsDTO.total;
     });
+  }
+
+  loadComics() {
+    if (this.query) {
+      return this.comicsService.findComics(this.query);
+    } else {
+      if (this.limit && this.offset) {
+        return this.comicsService.listComics(this.limit, this.offset);
+      }
+      return this.comicsService.listComics();
+    }
   }
 
   ngOnDestroy(): void {
