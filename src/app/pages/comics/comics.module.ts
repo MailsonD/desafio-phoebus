@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ComicsListComponent } from './comics-list/comics-list.component';
 import { ComicDetailComponent } from './comic-detail/comic-detail.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 
@@ -16,6 +17,7 @@ import { ComicDetailComponent } from './comic-detail/comic-detail.component';
     ComicsRoutingModule,
     ComponentsModule,
     MatProgressSpinnerModule,
+    MatPaginatorModule
   ]
 })
 export class ComicsModule { }

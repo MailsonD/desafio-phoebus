@@ -27,10 +27,16 @@
   </mat-toolbar-row>
 
   <mat-toolbar-row class="top-bar-second-row">
-    <form class="form-seach-responsive">
+    <form class="form-seach-responsive" (submit)="handleSubmitSearch()">
       <mat-form-field class="input-search-responsive">
         <mat-label class="input-font-size">Buscar</mat-label>
-        <input matInput placeholder="O que deseja?" class="input-font-size" />
+        <input
+          matInput
+          placeholder="O que deseja?"
+          class="input-font-size"
+          [(ngModel)]="query"
+          name="query"
+        />
         <mat-icon matSuffix class="icon-size">search</mat-icon>
       </mat-form-field>
     </form>

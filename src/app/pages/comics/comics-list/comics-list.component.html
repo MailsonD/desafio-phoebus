@@ -3,7 +3,8 @@
 </div>
 <div class="comics-list-box" *ngIf="comics">
   <span class="search-result" *ngIf="limit && offset">
-    {{ offset + 1 }}-{{ limit }} de {{ total }} resultados encontrados
+    {{ offset + 1 }}-{{ page * 20 + limit }} de {{ total }} resultados
+    encontrados
     <span *ngIf="query">para "{{ query }}"</span>
   </span>
   <span class="search-result" *ngIf="!limit && !offset">
@@ -16,5 +17,14 @@
       *ngFor="let comic of comics"
       [comic]="comic"
     ></app-comic-card>
+  </div>
+
+  <div class="paginator">
+    <mat-paginator
+      [length]="total"
+      [pageSize]="20"
+      (page)="handleChangePage($event)"
+    >
+    </mat-paginator>
   </div>
 </div>

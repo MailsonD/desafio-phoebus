@@ -12,10 +12,14 @@ import { Observable } from 'rxjs';
 })
 export class ComicsListComponent implements OnInit, OnDestroy {
 
-  limit: string;
-  offset: string;
+  ItemsPerPageLabel = 'Itens por página';
+
+  limit: number;
+  offset: number;
 
   total: number;
+
+  page = 0;
 
   comics: Comic[];
 
@@ -44,13 +48,35 @@ export class ComicsListComponent implements OnInit, OnDestroy {
 
   loadComics() {
     if (this.query) {
+      if (this.limit && this.offset) {
+        console.log('epa');
+        return this.comicsService.findComics(this.query, String(this.limit), String(this.offset));
+      }
       return this.comicsService.findComics(this.query);
     } else {
       if (this.limit && this.offset) {
-        return this.comicsService.listComics(this.limit, this.offset);
+        console.log('epa');
+        return this.comicsService.listComics(String(this.limit), String(this.offset));
       }
       return this.comicsService.listComics();
     }
+  }
+
+  handleChangePage(event) {
+    console.log(event);
+    this.comics = undefined;
+
+    this.page = event.pageIndex;
+
+    this.limit = event.pageSize;
+    this.offset = (event.pageIndex * event.pageSize) - 1;
+
+    console.log(this.limit, this.offset);
+
+    this.subscriptions.reload = this.loadComics().subscribe(comicsDTO => {
+      this.comics = comicsDTO.results;
+      // this.total = comicsDTO.total;
+    });
   }
 
   ngOnDestroy(): void {

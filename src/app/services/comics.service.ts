@@ -1,7 +1,7 @@
 import { environment as env } from './../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import ComicsDTO from '../model/comics-dto';
 
@@ -20,8 +20,8 @@ export class ComicsService {
     return this.getComics(this.QUERY_DEFAULT, offset, limit);
   }
 
-  findComics(query = this.QUERY_DEFAULT): Observable<ComicsDTO> {
-    return this.getComics(query, this.OFFSET_DEFAULT, this.LIMIT_DEFAULT);
+  findComics(query = this.QUERY_DEFAULT, limit = this.LIMIT_DEFAULT, offset = this.OFFSET_DEFAULT): Observable<ComicsDTO> {
+    return this.getComics(query, offset, limit);
   }
 
   private getComics(query: string, offset: string, limit: string): Observable<ComicsDTO> {
