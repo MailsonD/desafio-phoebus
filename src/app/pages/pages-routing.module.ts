@@ -1,3 +1,4 @@
+import { CartModule } from './cart/cart.module';
 import { ComicsModule } from './comics/comics.module';
 import { HomeModule } from './home/home.module';
 import { PagesComponent } from './pages.component';
@@ -17,7 +18,11 @@ const routes: Routes = [
       },
       {
         path: 'comics',
-        loadChildren: () => ComicsModule
+        loadChildren: () => ComicsModule,
+      },
+      {
+        path: 'cart',
+        loadChildren: () => CartModule,
       },
       {
         path: '',

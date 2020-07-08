@@ -45,6 +45,11 @@
     margin-left: 10px;
 }
 
+.box-comic-info hr {
+    color: #000;
+    width: 100%;
+}
+
 .box-comic-info p {
     color: #000;
     margin-left: 10px;
