@@ -8,7 +8,7 @@ import Comic from 'src/app/model/comic';
 })
 export class InitialComicsComponent implements OnInit {
 
-  @Input() initialComics: Comic[];
+  @Input() comics: Comic[];
 
   constructor() { }
 

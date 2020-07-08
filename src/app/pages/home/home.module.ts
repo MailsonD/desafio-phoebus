@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { HighlightsComponent } from './highlights/highlights.component';
 import { InitialComicsComponent } from './initial-comics/initial-comics.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { InitialComicsComponent } from './initial-comics/initial-comics.componen
     ComponentsModule,
     HomeRoutingModule,
     MatButtonModule,
+    MatProgressSpinnerModule,
   ],
 })
 export class HomeModule { }

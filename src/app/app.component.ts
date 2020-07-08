@@ -14,16 +14,9 @@ import { HttpClient } from '@angular/common/http';
   `,
   styleUrls: [ './app.component.css' ]
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'desafio-phoebus';
 
-  constructor(private comicsService: ComicsService) { }
-
-  ngOnInit() {
-    this.comicsService.listComics().subscribe(res => {
-      console.log('foi');
-      console.log(res.results);
-    });
-  }
+  constructor() { }
 
 }

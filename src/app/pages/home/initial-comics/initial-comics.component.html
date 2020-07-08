@@ -1,13 +1,17 @@
-<div class="rare-comics-box">
+<div class="spinner-box">
+  <mat-spinner color="accent" class="spinner" *ngIf="!comics"></mat-spinner>
+</div>
+
+<div class="rare-comics-box" *ngIf="comics">
   <div class="rare-comics-header">
     <h1>Quadrinhos Em Destaque</h1>
     <button mat-raised-button color="primary">Ver todos</button>
   </div>
+
   <div class="rare-comics-list">
-    <app-comic-card></app-comic-card>
-    <app-comic-card></app-comic-card>
-    <app-comic-card></app-comic-card>
-    <app-comic-card></app-comic-card>
-    <app-comic-card></app-comic-card>
+    <app-comic-card
+      *ngFor="let comic of comics"
+      [comic]="comic"
+    ></app-comic-card>
   </div>
 </div>
