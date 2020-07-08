@@ -10,6 +10,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { FooterComponent } from './footer/footer.component';
 import { ComicCardComponent } from './comic-card/comic-card.component';
 import { MatCardModule } from '@angular/material/card';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [ HeaderComponent, FooterComponent, ComicCardComponent ],
@@ -21,7 +22,8 @@ import { MatCardModule } from '@angular/material/card';
     MatInputModule,
     MatBadgeModule,
     MatCardModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
   exports: [
     HeaderComponent,

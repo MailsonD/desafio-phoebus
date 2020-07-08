@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
+  query = '';
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -15,6 +17,14 @@ export class HeaderComponent implements OnInit {
 
   goToHome() {
     this.router.navigate([ 'home' ]);
+  }
+
+  handleSubmitSearch() {
+    this.router.navigate([ 'comics' ], {
+      queryParams: {
+        query: this.query
+      }
+    });
   }
 
 }
