@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { HomeRoutingModule } from './home-routing.module';
 import { ComponentsModule } from './../../components/components.module';
@@ -17,6 +18,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     HomeRoutingModule,
     MatButtonModule,
     MatProgressSpinnerModule,
+    RouterModule,
   ],
 })
 export class HomeModule { }

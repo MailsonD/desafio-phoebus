@@ -1,3 +1,4 @@
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ComponentsModule } from './../../components/components.module';
 import { ComicsRoutingModule } from './comics-routing.module';
 import { ComicsComponent } from './comics.component';
@@ -13,7 +14,8 @@ import { ComicDetailComponent } from './comic-detail/comic-detail.component';
   imports: [
     CommonModule,
     ComicsRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    MatProgressSpinnerModule,
   ]
 })
 export class ComicsModule { }

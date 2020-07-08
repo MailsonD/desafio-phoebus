@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit, Input } from '@angular/core';
 import Comic from 'src/app/model/comic';
 
@@ -10,9 +11,13 @@ export class InitialComicsComponent implements OnInit {
 
   @Input() comics: Comic[];
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  goToListComics() {
+    this.router.navigate([ 'comics' ]);
   }
 
 }
