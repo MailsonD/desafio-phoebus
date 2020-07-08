@@ -18,15 +18,15 @@ export class AppComponent implements OnInit {
 
   constructor(private httpClient: HttpClient) { }
 
-  ngOnInit(): void {
-    this.httpClient.get(`${env.marvelApi.baseUrl}/comics`, {
-      params: {
-        apikey: env.marvelApi.apiKey,
-      }
-    }).subscribe(res => {
-      console.log('foi');
-      console.log(res);
-    });
+  ngOnInit() {
+    //   this.httpClient.get(`${env.marvelApi.baseUrl}/comics`, {
+    //     params: {
+    //       apikey: env.marvelApi.apiKey,
+    //     }
+    //   }).subscribe(res => {
+    //     console.log('foi');
+    //     console.log(res);
+    //   });
   }
 
 }
