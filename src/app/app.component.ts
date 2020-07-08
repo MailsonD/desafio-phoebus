@@ -1,3 +1,4 @@
+import { ComicsService } from './services/comics.service';
 import { environment as env } from './../environments/environment';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -16,17 +17,13 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent implements OnInit {
   title = 'desafio-phoebus';
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private comicsService: ComicsService) { }
 
   ngOnInit() {
-    //   this.httpClient.get(`${env.marvelApi.baseUrl}/comics`, {
-    //     params: {
-    //       apikey: env.marvelApi.apiKey,
-    //     }
-    //   }).subscribe(res => {
-    //     console.log('foi');
-    //     console.log(res);
-    //   });
+    this.comicsService.listComics().subscribe(res => {
+      console.log('foi');
+      console.log(res.results);
+    });
   }
 
 }

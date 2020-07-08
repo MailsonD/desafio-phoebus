@@ -4,21 +4,17 @@ import { ComponentsModule } from './../../components/components.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
-import { RareComicsComponent } from './rare-comics/rare-comics.component';
 import { HighlightsComponent } from './highlights/highlights.component';
+import { InitialComicsComponent } from './initial-comics/initial-comics.component';
 
 
 @NgModule({
-  declarations: [ HomeComponent, RareComicsComponent, HighlightsComponent ],
+  declarations: [ HomeComponent, InitialComicsComponent, HighlightsComponent ],
   imports: [
     CommonModule,
     ComponentsModule,
     HomeRoutingModule,
     MatButtonModule,
   ],
-  exports: [
-    RareComicsComponent,
-
-  ]
 })
 export class HomeModule { }
